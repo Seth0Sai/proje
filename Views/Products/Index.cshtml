@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LASTP.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="products-box">
+    <div class="container">
+
+        <div class="row special-list" style="position: relative; height: 364.203px;">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 special-grid">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="@Html.DisplayFor(modelItem => item.Image)" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                @using (Html.BeginForm("AddNow", "Products", FormMethod.Post))
+                                {
+                                    <a class="cart" href="#">Add to Cart</a>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                            <h5> $7.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            </div>
+    </div>
+</div>
+
